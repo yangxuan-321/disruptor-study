@@ -33,7 +33,7 @@ public class OrderEventProducer {
             OrderEvent event = ringBuffer.get(sequence);
 
             //3. 填充对象
-            event.setPrice(bb.getLong());
+            event.setPrice(bb.getLong(0));
         }finally {
             //4. 提交(发布)操作
             ringBuffer.publish(sequence);
