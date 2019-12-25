@@ -26,7 +26,7 @@ public class Main {
          * 参数:
          *  1. 消息(event)工厂对象
          *  2. 容器的长度
-         *  3. 线程池(再生产中强制使用自定义线程池) RejectedExecutionHandler
+         *  3. 线程池(再生产中强制使用自定义线程池-因为要设置上界) RejectedExecutionHandler
          *  4. 单生产者/多生成者
          *  5. 等待策略(此处用的阻塞队列)
          */

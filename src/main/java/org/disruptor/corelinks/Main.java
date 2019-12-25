@@ -39,9 +39,17 @@ public class Main {
 
         //2.绑定消费者
         //2.1串行操作
-        EventHandlerGroup<TradeEvent> handlerGroup = disruptor.handleEventsWith(new TradeEventHandler1())
-                                                              .handleEventsWith(new TradeEventHandler2())
-                                                              .handleEventsWith(new TradeEventHandler3());
+        //EventHandlerGroup<TradeEvent> handlerGroup = disruptor.handleEventsWith(new TradeEventHandler1())
+        //                                                      .handleEventsWith(new TradeEventHandler2())
+        //                                                      .handleEventsWith(new TradeEventHandler3());
+
+        // 2.2并行操作 有两种方式
+        // 第一种：添加多个handler(非链式操作)
+        disruptor.handleEventsWith(new TradeEventHandler1());
+        disruptor.handleEventsWith(new TradeEventHandler2());
+        disruptor.handleEventsWith(new TradeEventHandler3());
+        // 第二种：传多个 handler 来实现并行操作
+        // disruptor.handleEventsWith(new TradeEventHandler1(), new TradeEventHandler2(), new TradeEventHandler3());
 
         //3.启动disruptor
         RingBuffer<TradeEvent> ringBuffer = disruptor.start();
