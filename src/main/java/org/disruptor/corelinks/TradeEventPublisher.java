@@ -19,7 +19,7 @@ public class TradeEventPublisher implements Runnable {
     private CountDownLatch latch;
     private Disruptor disruptor;
 
-    private static final int PUBLISH_COUNT = 10;
+    private static final int PUBLISH_COUNT = 1;
 
     public TradeEventPublisher(CountDownLatch latch, Disruptor<TradeEvent> disruptor) {
         this.latch = latch;

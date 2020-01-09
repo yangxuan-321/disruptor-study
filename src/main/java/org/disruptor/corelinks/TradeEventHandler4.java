@@ -19,7 +19,6 @@ public class TradeEventHandler4 implements EventHandler<TradeEvent>, WorkHandler
         this.onEvent(event);
     }
 
-    @Override
     public void onEvent(TradeEvent event) throws Exception {
         event.setPrice(17.0);
         System.out.println("handler-set price");

@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.WorkHandler;
 
+import java.text.MessageFormat;
+
 /**
  * @author Kevin
  * @Title: TradeEventHandler1
@@ -20,6 +22,6 @@ public class TradeEventHandler3 implements EventHandler<TradeEvent>, WorkHandler
     @Override
     public void onEvent(TradeEvent event) throws Exception {
         Thread.sleep(1000);
-        System.out.println("handler3-print:%s." + JSON.toJSON(event));
+        System.out.println(MessageFormat.format("handler3-print:{0}.", JSON.toJSON(event)));
     }
 }

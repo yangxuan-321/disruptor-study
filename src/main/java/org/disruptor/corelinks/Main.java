@@ -45,11 +45,17 @@ public class Main {
 
         // 2.2并行操作 有两种方式
         // 第一种：添加多个handler(非链式操作)
-        disruptor.handleEventsWith(new TradeEventHandler1());
-        disruptor.handleEventsWith(new TradeEventHandler2());
-        disruptor.handleEventsWith(new TradeEventHandler3());
+        //disruptor.handleEventsWith(new TradeEventHandler1());
+        //disruptor.handleEventsWith(new TradeEventHandler2());
+        //disruptor.handleEventsWith(new TradeEventHandler3());
         // 第二种：传多个 handler 来实现并行操作
         // disruptor.handleEventsWith(new TradeEventHandler1(), new TradeEventHandler2(), new TradeEventHandler3());
+
+        // 2.2菱形操作
+        // 先并行执行handler1,handler2, 等好h1和h2执行完之后, 然后串行执行
+        disruptor.handleEventsWith(new TradeEventHandler1(), new TradeEventHandler2())
+                .handleEventsWith(new TradeEventHandler3());
+
 
         //3.启动disruptor
         RingBuffer<TradeEvent> ringBuffer = disruptor.start();

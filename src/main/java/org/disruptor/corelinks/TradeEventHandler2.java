@@ -16,7 +16,7 @@ public class TradeEventHandler2 implements EventHandler<TradeEvent> {
     @Override
     public void onEvent(TradeEvent event, long sequence, boolean b) throws Exception {
         event.setId(UUID.randomUUID().toString());
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         System.out.println("handler-set id");
     }
 }
