@@ -1,8 +1,8 @@
 package org.disruptor.corelinks;
 
-import com.lmax.disruptor.*;
+import com.lmax.disruptor.BusySpinWaitStrategy;
+import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
-import com.lmax.disruptor.dsl.EventHandlerGroup;
 import com.lmax.disruptor.dsl.ProducerType;
 
 import java.util.concurrent.CountDownLatch;

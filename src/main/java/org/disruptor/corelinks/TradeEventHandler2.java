@@ -1,6 +1,5 @@
 package org.disruptor.corelinks;
 
-import com.alibaba.fastjson.JSON;
 import com.lmax.disruptor.EventHandler;
 
 import java.util.UUID;

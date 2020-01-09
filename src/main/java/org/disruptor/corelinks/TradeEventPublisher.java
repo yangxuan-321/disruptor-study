@@ -1,6 +1,5 @@
 package org.disruptor.corelinks;
 
-import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.EventTranslator;
 import com.lmax.disruptor.dsl.Disruptor;
 
