@@ -31,7 +31,8 @@ public class Main {
          *  5. 等待策略(此处用的阻塞队列)
          */
         //1. 实例化disruptor对象
-        Disruptor<OrderEvent> disruptor = new Disruptor<OrderEvent>(factory, ringBufferSize, executor, ProducerType.SINGLE, new BlockingWaitStrategy());
+        Disruptor<OrderEvent> disruptor = new Disruptor<OrderEvent>(factory, ringBufferSize, executor,
+                ProducerType.SINGLE, new BlockingWaitStrategy());
 
         //2. 添加消费者的监听(注册消费者)
         disruptor.handleEventsWith(new OrderEventHandler());
