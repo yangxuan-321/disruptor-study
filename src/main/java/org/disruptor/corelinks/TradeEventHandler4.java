@@ -17,6 +17,7 @@ public class TradeEventHandler4 implements EventHandler<TradeEvent>, WorkHandler
     }
 
     public void onEvent(TradeEvent event) throws Exception {
+        Thread.sleep(2000);
         event.setName("keyboard");
         System.out.println("handler4-set name");
     }

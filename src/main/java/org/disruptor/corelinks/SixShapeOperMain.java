@@ -21,10 +21,13 @@ public class SixShapeOperMain {
     public static void main(String[] args) throws Exception{
         long start = System.currentTimeMillis();
 
-        // es1 生产者线程
+        // es1 生产者线程 -- 用于提交任务
+        // 设置成 1 都没问题 因为后面 我们异步的 提交了 一个任务
         ExecutorService es1 = Executors.newFixedThreadPool(4);
-        // es2 消费者线程
-        // 因为 有 h1~h5 五个消费者监听 所以 此处的线程池 最好就是五个数目
+        // es2 消费者线程 --
+        // 因为 是单消费者模式 况且 有 h1~h5 五个消费者监听 所以 此处的线程池 最好就是五个数目
+        // 但是 实际问题 中 的handler 数目不确定, 所以这样做 是不行的
+        // 所以 需要 采用 多消费者模式
         ExecutorService es2 = Executors.newFixedThreadPool(5);
 
         //1.构建disruptor

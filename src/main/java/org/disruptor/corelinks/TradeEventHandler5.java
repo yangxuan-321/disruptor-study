@@ -20,6 +20,7 @@ public class TradeEventHandler5 implements EventHandler<TradeEvent>, WorkHandler
 
     @Override
     public void onEvent(TradeEvent event) throws Exception {
+        Thread.sleep(1000);
         event.setId(UUID.randomUUID().toString());
         System.out.println("handler5-set id");
     }
