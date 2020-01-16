@@ -15,8 +15,8 @@ import java.util.UUID;
 public class TradeEventHandler1 implements EventHandler<TradeEvent> {
     @Override
     public void onEvent(TradeEvent event, long sequence, boolean b) throws Exception {
-        event.setName("handler1");
+        event.setPrice(10.0);
         Thread.sleep(1000);
-        System.out.println("handler-set name");
+        System.out.println("handler1-set price");
     }
 }

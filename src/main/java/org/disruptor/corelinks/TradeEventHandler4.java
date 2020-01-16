@@ -21,7 +21,7 @@ public class TradeEventHandler4 implements EventHandler<TradeEvent>, WorkHandler
 
     @Override
     public void onEvent(TradeEvent event) throws Exception {
-        event.setPrice(17.0);
-        System.out.println("handler-set price");
+        event.setName("keyboard");
+        System.out.println("handler4-set name");
     }
 }

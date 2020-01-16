@@ -3,6 +3,8 @@ package org.disruptor.corelinks;
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.WorkHandler;
 
+import java.util.UUID;
+
 /**
  * @author Kevin
  * @Title: TradeEventHandler1
@@ -18,7 +20,7 @@ public class TradeEventHandler5 implements EventHandler<TradeEvent>, WorkHandler
 
     @Override
     public void onEvent(TradeEvent event) throws Exception {
-        event.setState("完成");
-        System.out.println("handler-set state");
+        event.setId(UUID.randomUUID().toString());
+        System.out.println("handler5-set id");
     }
 }

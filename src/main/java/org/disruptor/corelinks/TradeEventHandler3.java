@@ -19,6 +19,7 @@ public class TradeEventHandler3 implements EventHandler<TradeEvent>, WorkHandler
 
     @Override
     public void onEvent(TradeEvent event) throws Exception {
+        event.setState("完成");
         System.out.println("handler3-print:%s." + JSON.toJSON(event));
     }
 }

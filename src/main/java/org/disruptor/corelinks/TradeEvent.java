@@ -40,6 +40,10 @@ public class TradeEvent {
         this.price = price;
     }
 
+    public void changePrice(double price){
+        this.price += price;
+    }
+
     public AtomicInteger getCount() {
         return count;
     }
