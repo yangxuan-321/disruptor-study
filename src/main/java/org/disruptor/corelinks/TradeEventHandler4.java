@@ -1,10 +1,7 @@
 package org.disruptor.corelinks;
 
-import com.alibaba.fastjson.JSON;
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.WorkHandler;
-
-import java.util.UUID;
 
 /**
  * @author Kevin
@@ -19,7 +16,6 @@ public class TradeEventHandler4 implements EventHandler<TradeEvent>, WorkHandler
         this.onEvent(event);
     }
 
-    @Override
     public void onEvent(TradeEvent event) throws Exception {
         event.setName("keyboard");
         System.out.println("handler4-set name");
