@@ -31,6 +31,8 @@ public class SixShapeOperMain {
         ExecutorService es2 = Executors.newFixedThreadPool(5);
 
         //1.构建disruptor
+        // 单生产者 - 依赖于ProducerType.SINGLE
+        // 多生产者 - 依赖于ProducerType.MULTI
         Disruptor<TradeEvent> disruptor = new Disruptor<TradeEvent>(
                 new TradeEventFactory(),
                 1024 * 1024,
@@ -38,6 +40,8 @@ public class SixShapeOperMain {
                 ProducerType.SINGLE,
                 new BusySpinWaitStrategy()
         );
+
+        // 多消费者需要依赖于 WorkerPool
 
         //2.绑定消费者
         //六边形操作
