@@ -29,11 +29,9 @@ public class Producer {
 
             // 设置数据
             orderEvent.setId(uuid);
-
+        }finally {
             //投递发布一个事件 - 让消费者 接到
             ringBuffer.publish(sequence);
-        }finally {
-
         }
     }
 }

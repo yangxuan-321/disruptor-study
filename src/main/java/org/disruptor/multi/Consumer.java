@@ -13,23 +13,23 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Time : Created in 2020/1/17 23:03
  * @Modifyed By :
  */
-public class Conmuser implements WorkHandler<OrderEvent> {
+public class Consumer implements WorkHandler<OrderEvent> {
     // 消费者Id
-    private String conmuserId;
+    private String consumerId;
     // 用于计数统计
     private static AtomicInteger count = new AtomicInteger(0);
 
     private Random random = new Random();
 
-    public Conmuser(String conmuserId) {
-        this.conmuserId = conmuserId;
+    public Consumer(String consumerId) {
+        this.consumerId = consumerId;
     }
 
     @Override
     public void onEvent(OrderEvent event) throws Exception {
         // 模拟每做一个任务需要 1~4 毫秒
         Thread.sleep(1 * random.nextInt(5));
-        System.out.println(String.format("当前消费者:%s, 消费信息ID:", this.conmuserId, event.getId()));
+        System.out.println(String.format("当前消费者:%s, 消费信息ID:%s", this.consumerId, event.getId()));
         count.incrementAndGet();
     }
 
